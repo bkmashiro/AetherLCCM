@@ -3,3 +3,7 @@
 /sim/.venv
 /sim/__pycache__/
 /sim/.pytest_cache/
+sim/**/__pycache__/
+*.pyc
+*.pyo
+*.pyd
