@@ -1,0 +1,16 @@
+scenario phase5_honest_cross_settlement {
+  domain earth at frame earth-frame
+  domain alpha at frame alpha-frame
+  distance earth alpha 4.3 ly
+  policy route_min_hops=1 min_nonce_chars=8
+  checkpoint cp-earth-1 domain=earth height=1 hash=cp-earth-1
+  worldline earth-lane t=0 x=0 y=0 z=0
+  worldline alpha-lane t=0 x=4.3 y=0 z=0
+
+  event lock_for_export lock-001 actor=alice domain=earth
+  event accept_remote_claim claim-001 actor=alice domain=alpha
+  message m-001 from=lock-001 to=claim-001 route=earth>alpha send=0 receive=5 payload_hash=payload-lock-alpha nonce=nonce-001
+
+  claim claim-001 lock=lock-001 origin=earth remote=alpha asset=gold amount=100 checkpoint=cp-earth-1 settlement_horizon=8
+  expect no_conflict lock-001
+}

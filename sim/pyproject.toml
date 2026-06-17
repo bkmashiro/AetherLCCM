@@ -1,0 +1,9 @@
+[project]
+name = "uni-spacetime-sim"
+version = "0.1.0"
+description = "Simulation scaffolding for universe-scale exchange lightcone and settlement scenarios"
+requires-python = ">=3.11"
+
+[project.optional-dependencies]
+dev = []
+

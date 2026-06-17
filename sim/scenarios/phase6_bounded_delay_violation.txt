@@ -1,0 +1,10 @@
+scenario phase6_bounded_delay_violation {
+  domain earth at frame earth-frame
+  domain alpha at frame alpha-frame
+  distance earth alpha 4.3 ly
+  policy route_min_hops=1 max_route_hops=4 max_delay_years=5 min_nonce_chars=8
+  checkpoint cp-earth-1 domain=earth height=1 hash=cp-earth-1
+  event lock_for_export lock-delay actor=alice domain=earth
+  event accept_remote_claim claim-delay actor=alice domain=alpha
+  message m-delay from=lock-delay to=claim-delay route=earth>alpha send=0 receive=20 payload_hash=payload-delay nonce=nonce-delay
+}

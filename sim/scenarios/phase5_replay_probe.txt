@@ -1,0 +1,13 @@
+scenario phase5_replay_probe {
+  domain earth at frame earth-frame
+  domain alpha at frame alpha-frame
+  distance earth alpha 4.3 ly
+  policy route_min_hops=1 min_nonce_chars=8
+  checkpoint cp-earth-1 domain=earth height=1 hash=cp-earth-1
+
+  event lock_for_export lock-replay actor=alice domain=earth
+  event accept_remote_claim claim-replay domain=alpha
+
+  message m-replay-1 from=lock-replay to=claim-replay route=earth>alpha send=0 receive=6 nonce=replay-01
+  message m-replay-2 from=lock-replay to=claim-replay route=earth>alpha send=1 receive=7 nonce=replay-01
+}

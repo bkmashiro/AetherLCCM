@@ -1,0 +1,11 @@
+scenario phase6_offline_violation {
+  domain earth at frame earth-frame
+  domain alpha at frame alpha-frame
+  distance earth alpha 1.2 ly
+  offline domain=alpha start=5 end=10
+  policy route_min_hops=1 min_nonce_chars=8
+  checkpoint cp-earth-1 domain=earth height=1 hash=cp-earth-1
+  event lock_for_export lock-offline actor=alice domain=earth
+  event accept_remote_claim claim-offline actor=alice domain=alpha
+  message m-offline from=lock-offline to=claim-offline route=earth>alpha send=6 receive=12 payload_hash=payload-offline nonce=nonce-offline
+}

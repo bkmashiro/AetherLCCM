@@ -1,0 +1,9 @@
+scenario earth_alpha_basic_distance {
+  domain earth at frame earth-frame
+  domain alpha at frame alpha-frame
+  distance earth alpha 4.3 ly
+  event lock_for_export tx-001 actor=alice remote=alpha amount=100 asset=gold
+  relay delay=4.3 years
+  event accept_remote_claim claim-001 by=alpha
+  settlement horizon=8 years
+}
