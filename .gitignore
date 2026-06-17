@@ -7,3 +7,5 @@ sim/**/__pycache__/
 *.pyc
 *.pyo
 *.pyd
+AGENT.MD
+ROADMAP.md

@@ -4,10 +4,8 @@ This repository contains a blueprint and baseline code structure for the LCCM pr
 
 ## Key files
 
-- [AGENT.MD](/C:/Users/Dylan/Desktop/uni/AGENT.MD)
-  - Implementation contract and governing constraints.
-- [ROADMAP.md](/C:/Users/Dylan/Desktop/uni/ROADMAP.md)
-  - Phase plan and acceptance criteria.
+- `AGENT.MD` (maintained locally, not published in this repository)
+- `ROADMAP.md` (maintained locally, not published in this repository)
 - `protocol/` 
   - Rust crate scaffold for consensus, checkpoints, causality, and settlement transition APIs.
 - `sim/`
@@ -33,4 +31,3 @@ This repository contains a blueprint and baseline code structure for the LCCM pr
 1. Replace placeholder errors with executable protocol logic.
 2. Wire deterministic trace output into Rust/Python boundaries.
 3. Expand Python scenario parser and property checks to cover the J-section scenarios in `uni.md`.
-
